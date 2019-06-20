@@ -4,8 +4,8 @@
 
 typedef struct item
 {
-    int* lista;
-    float chave;
+    int* lista; //vetor
+    float chave;  // VALOR_RAIZ_QUADRADA
 
 }TipoItem;
 
@@ -16,6 +16,20 @@ typedef struct lista
 
 }TipoLista;
 
+
+float BuscaBinariaLista(TipoItem item);
+float raizQuadrada(TipoItem item);
+
+
+
+void main()
+{
+    TipoItem item;
+
+    item.chave = VALOR_RAIZ_QUADRADA;
+    printf("Raiz quadrada: %f\n", raizQuadrada(item));
+
+}
 
 
 float BuscaBinariaLista(TipoItem item)
@@ -77,15 +91,5 @@ float raizQuadrada(TipoItem item)
 
     return BuscaBinariaLista(item);
 
-
-}
-
-
-void main()
-{
-    TipoItem item;
-
-    item.chave = VALOR_RAIZ_QUADRADA;
-    printf("Raiz quadrada: %f\n", raizQuadrada(item));
 
 }
