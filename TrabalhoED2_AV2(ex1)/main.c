@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define VALOR_RAIZ_QUADRADA 16
+#define VALOR_RAIZ_QUADRADA 100
 
 typedef struct item
 {
@@ -27,7 +27,7 @@ void main()
     TipoItem item;
 
     item.chave = VALOR_RAIZ_QUADRADA;
-    printf("Raiz quadrada: %f\n", raizQuadrada(item));
+    printf("\n\n>>> Raiz quadrada: %f\n", raizQuadrada(item));
 
 }
 
