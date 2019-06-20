@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define VALOR_RAIZ_QUADRADA 100
+#define VALOR_RAIZ_QUADRADA 121
 
 typedef struct item
 {
-    int* lista; //vetor
-    float chave;  // VALOR_RAIZ_QUADRADA
+    int* lista;    //vetor
+    int chave;  // VALOR_RAIZ_QUADRADA
+    float resultado_raiz_quadrada;
 
 }TipoItem;
 
@@ -17,22 +18,27 @@ typedef struct lista
 }TipoLista;
 
 
-float BuscaBinariaLista(TipoItem item);
-float raizQuadrada(TipoItem item);
-
+int buscaBinariaLista(TipoItem item);
+int raizQuadrada(TipoItem item);
 
 
 void main()
 {
     TipoItem item;
+    int posicao;
 
     item.chave = VALOR_RAIZ_QUADRADA;
-    printf("\n\n>>> Raiz quadrada: %f\n", raizQuadrada(item));
+    item.resultado_raiz_quadrada = raizQuadrada(item);
+
+    printf("\n\n>>> Raiz quadrada de %d eh: %f\n\n\n", VALOR_RAIZ_QUADRADA, item.resultado_raiz_quadrada);
+
+    system("pause");
+
 
 }
 
 
-float BuscaBinariaLista(TipoItem item)
+int buscaBinariaLista(TipoItem item)
 {
     int inf = 0, sup = VALOR_RAIZ_QUADRADA, busca = -1, meio;
 
@@ -53,13 +59,21 @@ float BuscaBinariaLista(TipoItem item)
             sup = meio - 1;
     }
 
+    //se não encontrar com valores inteiros ele irá buscar com números decimais.
+    if(busca == -1)
+    {
+
+
+    }
+
+    //retorna o indice
     return busca;
 }
 
 
-float raizQuadrada(TipoItem item)
+int raizQuadrada(TipoItem item)
 {
-    int minimo = 0, i;
+    int minimo = 0, i, posicao;
 
     //se a o valor da raiz quadrada for menor que zero,
     //então retorne zero.
@@ -69,7 +83,7 @@ float raizQuadrada(TipoItem item)
     }
 
     //(valor + 1), necessário para poder inclui o próprio valor e o zero.
-    item.lista = (int*) malloc((item.chave) * sizeof(int));
+    item.lista = (int*) malloc((item.chave + 1) * sizeof(int));
 
     if(item.lista == NULL)
     {
@@ -89,7 +103,5 @@ float raizQuadrada(TipoItem item)
     }
 
 
-    return BuscaBinariaLista(item);
-
-
+    return buscaBinariaLista(item);
 }
