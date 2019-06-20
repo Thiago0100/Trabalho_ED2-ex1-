@@ -1,37 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define VALOR_RAIZ_QUADRADA 16
 
 typedef struct item
 {
-    int* vetor;
-    int numero;
+    int* lista;
+    float chave;
 
 }TipoItem;
 
 typedef struct lista
 {
-    int* primeiro;
-    int* ultimo;
+    int primeiro;
+    int ultimo;
 
 }TipoLista;
 
 
-/*
-int BuscaBinariaLista(TipoLista *lista, TipoItem item)
+
+float BuscaBinariaLista(TipoItem item)
 {
-    int inf = 0, sup = lista->ultimo, busca = -1, meio;
+    int inf = 0, sup = VALOR_RAIZ_QUADRADA, busca = -1, meio;
 
     while (inf <= sup)
     {
         meio = (inf + sup) / 2;
 
-        if (lista->itens[meio].chave == item.chave)
+        if ((item.lista[meio]*item.lista[meio]) == item.chave)
         {
             busca = meio; // índice do nó encontrado
             inf = sup + 1;
         }
 
-        else if (lista->itens[meio].chave < item.chave)
+        else if ((item.lista[meio]*item.lista[meio]) < item.chave)
             inf = meio + 1;
 
         else
@@ -40,7 +41,7 @@ int BuscaBinariaLista(TipoLista *lista, TipoItem item)
 
     return busca;
 }
-*/
+
 
 float raizQuadrada(TipoItem item)
 {
@@ -48,30 +49,33 @@ float raizQuadrada(TipoItem item)
 
     //se a o valor da raiz quadrada for menor que zero,
     //então retorne zero.
-    if(item.numero <= minimo)
+    if(item.chave <= minimo)
     {
         return 0;
     }
 
     //(valor + 1), necessário para poder inclui o próprio valor e o zero.
-    item.vetor = (int*) malloc((item.numero + 1) * sizeof(int));
+    item.lista = (int*) malloc((item.chave) * sizeof(int));
 
-    if(item.vetor == NULL)
+    if(item.lista == NULL)
     {
-        printf("\n>>>> Memória insuficiente! <<<<\n");
+        printf("\n>>>> Memoria insuficiente! <<<<\n");
+        system("pause");
     }
 
-    for(i = 0; i <= item.numero + 1; i++)
+    for(i = 0; i <= item.chave; i++)
     {
-        item.vetor[i] = i;
+        item.lista[i] = i;
     }
 
        //Testa vetor
-    for(i = 0; i <= item.numero; i++)
+    for(i = 0; i <= item.chave; i++)
     {
-        printf("posicao %i: %d\n\n", i, item.vetor[i]);
+        printf("posicao %d: %d\n\n", i, item.lista[i]);
     }
 
+
+    return BuscaBinariaLista(item);
 
 
 }
@@ -81,7 +85,7 @@ void main()
 {
     TipoItem item;
 
-    item.numero = 10;
+    item.chave = VALOR_RAIZ_QUADRADA;
     printf("Raiz quadrada: %f\n", raizQuadrada(item));
 
 }
