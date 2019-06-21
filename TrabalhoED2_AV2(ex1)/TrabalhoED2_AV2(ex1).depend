@@ -1,5 +1,8 @@
 # depslib dependency file v1.0
-1561088676 source:c:\users\thiag\documents\github\trabalho_ed2-ex1-\trabalhoed2_av2(ex1)\main.c
+1561089529 source:c:\users\thiag\documents\github\trabalho_ed2-ex1-\trabalhoed2_av2(ex1)\main.c
 	<stdio.h>
 	<stdlib.h>
+	"raiz_quadrada.h"
+
+1561089552 c:\users\thiag\documents\github\trabalho_ed2-ex1-\trabalhoed2_av2(ex1)\raiz_quadrada.h
 
