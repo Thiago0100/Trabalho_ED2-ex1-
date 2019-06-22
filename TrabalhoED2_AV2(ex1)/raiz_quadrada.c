@@ -127,14 +127,14 @@ int raizQuadrada(TipoItem *item)
 {
     int minimo = 0, i, posicao;
 
-    //se a o valor da raiz quadrada for menor que zero,
+    //se a o item->chave da raiz quadrada for menor que zero,
     //então retorne zero.
     if(item->chave <= minimo)
     {
-        return 0;
+        return - 1;
     }
 
-    //(valor + 1), necessário para poder inclui o próprio valor e o zero.
+    //(item->chave + 1), necessário para poder inclui o próprio valor e o zero.
     item->lista1 = (int*) malloc((item->chave + 1) * sizeof(int));
 
     if(item->lista1 == NULL)

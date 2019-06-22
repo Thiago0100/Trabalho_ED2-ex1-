@@ -34,6 +34,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="raiz_quadrada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="raiz_quadrada.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

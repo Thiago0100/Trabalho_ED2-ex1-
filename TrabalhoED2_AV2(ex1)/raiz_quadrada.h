@@ -11,14 +11,6 @@ typedef struct item
 
 }TipoItem;
 
-typedef struct lista
-{
-    int primeiro;
-    int ultimo;
-
-}TipoLista;
-
-
 int buscaBinariaLista(TipoItem* item);
 int raizQuadrada(TipoItem* item);
 
