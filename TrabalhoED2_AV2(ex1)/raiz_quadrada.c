@@ -6,8 +6,8 @@
 int buscaBinariaLista(TipoItem* item)
 {
     int inf = 0, sup = item->chave, busca = -1, meio;
-    int valor_proximo1, i;
-    float auxiliar = 0.00, valor_proximo2;
+    int valor_proximo1, i, controle = 2, flag;
+    float auxiliar = 0.01, valor_proximo2;
 
     if(item->tipo_de_lista == 2)
     {
@@ -36,7 +36,36 @@ int buscaBinariaLista(TipoItem* item)
             }
         }
 
-        busca = meio - 1;
+        do
+        {
+
+            if(item->lista2[meio]*item->lista2[meio] < item->chave && flag != 0)
+            {
+                item->lista2[meio] += auxiliar;
+                flag = 1; // utilizado para não permitir entrar nas ouras condições
+            }
+
+            else if(flag != 0)
+            {
+                item->lista2[meio] -= auxiliar;
+            }
+
+            if(item->lista2[meio]*item->lista2[meio] > item->chave && flag != 1)
+            {
+                item->lista2[meio] += auxiliar;
+                flag = 0; // utilizado para não permitir entrar nas ouras condições
+            }
+
+            else if(flag != 1)
+            {
+                item->lista2[meio] -= auxiliar;
+            }
+
+            controle--;
+
+        }while(controle > 0);  //usado para 2 vezes
+
+        busca = meio;
     }
 
     if(item->tipo_de_lista == 1)
@@ -82,8 +111,8 @@ int buscaBinariaLista(TipoItem* item)
 
             for(i = 0; i < CASAS_DECIMAIS; i++)
             {
-                auxiliar += 0.01;
                 item->lista2[i] = valor_proximo1 + auxiliar;
+                auxiliar += 0.01;
             }
 
             item->tipo_de_lista = 2;
