@@ -3,6 +3,36 @@
 #include "raiz_quadrada.h"
 #define CASAS_DECIMAIS 100  // são as quantidades de posicoes em relação a quantidade de casas decimais.
 
+int raizQuadrada(TipoItem *item)
+{
+    int minimo = 0, i, posicao;
+
+    //se a o item->chave da raiz quadrada for menor que zero,
+    //então retorne zero.
+    if(item->chave <= minimo)
+    {
+        return - 1;
+    }
+
+    //(item->chave + 1), necessário para poder inclui o próprio valor e o zero.
+    item->lista1 = (int*) malloc((item->chave + 1) * sizeof(int));
+
+    if(item->lista1 == NULL)
+    {
+        perror("\n>>>> Memoria insuficiente! <<<<\n");
+        system("pause");
+        exit(EXIT_FAILURE);
+    }
+
+    for(i = 0; i <= item->chave; i++)
+    {
+        item->lista1[i] = i;
+    }
+
+    return buscaBinariaLista(item);
+}
+
+
 int buscaBinariaLista(TipoItem* item)
 {
     int inf = 0, sup = item->chave, busca = -1, meio;
@@ -153,31 +183,3 @@ int buscaBinariaLista(TipoItem* item)
 }
 
 
-int raizQuadrada(TipoItem *item)
-{
-    int minimo = 0, i, posicao;
-
-    //se a o item->chave da raiz quadrada for menor que zero,
-    //então retorne zero.
-    if(item->chave <= minimo)
-    {
-        return - 1;
-    }
-
-    //(item->chave + 1), necessário para poder inclui o próprio valor e o zero.
-    item->lista1 = (int*) malloc((item->chave + 1) * sizeof(int));
-
-    if(item->lista1 == NULL)
-    {
-        perror("\n>>>> Memoria insuficiente! <<<<\n");
-        system("pause");
-        exit(EXIT_FAILURE);
-    }
-
-    for(i = 0; i <= item->chave; i++)
-    {
-        item->lista1[i] = i;
-    }
-
-    return buscaBinariaLista(item);
-}
