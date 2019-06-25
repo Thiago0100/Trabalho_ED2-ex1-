@@ -105,8 +105,9 @@ int buscaBinariaLista(TipoItem* item)
 
             if(item->lista2 == NULL)
             {
-                printf("\n>>>> Memoria insuficiente! <<<<\n");
+                perror("\n>>>> Memoria insuficiente! <<<<\n");
                 system("pause");
+                exit(EXIT_FAILURE);
             }
 
             for(i = 0; i < CASAS_DECIMAIS; i++)
@@ -168,8 +169,9 @@ int raizQuadrada(TipoItem *item)
 
     if(item->lista1 == NULL)
     {
-        printf("\n>>>> Memoria insuficiente! <<<<\n");
+        perror("\n>>>> Memoria insuficiente! <<<<\n");
         system("pause");
+        exit(EXIT_FAILURE);
     }
 
     for(i = 0; i <= item->chave; i++)
